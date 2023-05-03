@@ -4,19 +4,69 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
+
 # definition of the new classes
 qa:QanaryComponent  a  owl:Class ;
         rdfs:label  "Qanary component"@en .
 
-#TODO: define all compoenent types NER, NED, QB, etc.
+# NER
+qa:QanaryComponentNER  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Named Entity Recognition component"@en .
 
+# NED
+qa:QanaryComponentNED  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Named Entity Disambiguation component"@en .
+
+# REL
+qa:QanaryComponentREL  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Relation Extraction component"@en .
+
+# RD
+qa:QanaryComponentRD  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Relation Detection component"@en .
+
+# QE
+qa:QanaryComponentQE  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Query Executor component"@en .
+
+# QBE
+qa:QanaryComponentQBE  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Query Builder and Executor component"@en .
+
+# NERD
+qa:QanaryComponentNERD  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Named Entity Recognition and Disambiguation component"@en .
+
+# QB
+qa:QanaryComponentQB  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Query Builder component"@en .
+
+# MT
+qa:QanaryComponentMT  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Machine Translation component"@en .
+
+# LD
+qa:QanaryComponentLD  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Language Detection component"@en .
+
+# CLS
+qa:QanaryComponentCLS  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Class Detection component"@en .
+
+# ASR
+qa:QanaryComponentASR  rdfs:subClassOf  qa:QanaryComponent ;
+        rdfs:label  "Automatic Speech Recognition component"@en .
+
+# Language
 qa:Language  a           owl:Class ;
         rdfs:label       "Language"@en ;
         rdfs:subClassOf  schema:CreativeWork .
 
+# Knowledge Graph
 qa:KnowldgeGraph  a      owl:Class ;
         rdfs:label       "Knowledge Graph"@en ;
         rdfs:subClassOf  schema:CreativeWork .
+
 # definition of the new properties
 qa:hasInputAnnotations
         a             rdf:Property ;
@@ -38,17 +88,35 @@ qa:supportedLanguages
 qa:AnnotationQuestion
         owl:equivalentClass  [ a                   owl:Restriction ;
                                owl:onProperty      qa:supportedLanguages ;
-                               owl:someValuesFrom  qa:language
+                               owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
                              ] .
 
 qa:AnnotationOfInstance
         owl:equivalentClass  [ a                   owl:Restriction ;
                                owl:onProperty      qa:supportedKnowledgeGraphs ;
-                               owl:someValuesFrom  qa:knowledgeGraph
+                               owl:someValuesFrom  qa:KnowledgeGraph
                              ] .
 
 qa:AnnotationOfRelation
         owl:equivalentClass  [ a                   owl:Restriction ;
                                owl:onProperty      qa:supportedKnowledgeGraphs ;
-                               owl:someValuesFrom  qa:knowledgeGraph
+                               owl:someValuesFrom  qa:KnowledgeGraph
+                             ] .
+
+qa:AnnotationOfClass
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedKnowledgeGraphs ;
+                               owl:someValuesFrom  qa:KnowledgeGraph
+                             ] .
+
+qa:AnnotationOfQuestionLanguage 
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      oa:hasBody ;
+                               owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
+                             ] .
+
+qa:AnnotationOfQuestionTranslation
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedLanguages ;
+                               owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
                              ] .

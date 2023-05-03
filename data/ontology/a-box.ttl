@@ -2,14 +2,6 @@
 @prefix qaData: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-qaData:English a qa:Language ;
-    rdfs:label "en"@en .
 
-qaData:German a qa:Language ;
-    rdfs:label "de"@en .
-
-qaData:Russian a qa:Language ;
-    rdfs:label "ru"@en .
-
-qaData:Example> a qa:KnowledgeGraph ;
+qaData:Example a qa:KnowledgeGraph ;
     rdfs:label "Example Knowledge Graph"@en .

@@ -1,0 +1,18 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
+
+qaData:PythonNLLB
+        a                        qa:QanaryComponentMT ;
+        rdfs:comment             "MT tool that uses pre-trained \"No Language Left Behind\" (NLLB) models by Meta in transformers library."@en ;
+        rdfs:label               "Qanary component: Python Machine Translation NLLB"@en ;
+        # TODO: add more languages
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  ISO6391:en, ISO6391:fr, ISO6391:de, ISO6391:it, ISO6391:es, ISO6391:ru, ISO6391:pt, ISO6391:ar, ISO6391:zh
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                      qa:AnnotationOfQuestionTranslation ;
+                                   qa:supportedLanguages  ISO6391:en, ISO6391:fr, ISO6391:de, ISO6391:it, ISO6391:es, ISO6391:ru, ISO6391:pt, ISO6391:ar, ISO6391:zh
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                      qa:AnnotationOfQuestionLanguage 
+                                 ] .
