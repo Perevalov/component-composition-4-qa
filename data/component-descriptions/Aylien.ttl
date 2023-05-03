@@ -1,0 +1,14 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+qaData:Aylien
+        a                        qa:QanaryComponentNED ;
+        rdfs:comment             "This is a wrapper component that is annotating the available questions with Named Entities from DBpedia while fetching these pieces of information from the Aylien Webservice."@en ;
+        rdfs:label               "Qanary component: Aylien Named Entity Disambiguator"@en ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  qaData:English
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfInstance ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] .

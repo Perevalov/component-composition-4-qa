@@ -1,0 +1,14 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+qaData:ReMatch
+        a                        qa:QanaryComponentREL ;
+        rdfs:comment             "This is a wrapper component that is annotating the available questions with Relations from DBpedia"@en ;
+        rdfs:label               "Qanary component: ReMatch Relation Linker"@en ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  qaData:English
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfRelation ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] .

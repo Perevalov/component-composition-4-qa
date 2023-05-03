@@ -1,0 +1,14 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+qaData:QAnswer
+        a                        qa:QanaryComponentQB ;
+        rdfs:comment             "This is a component that uses question text to build a SPARQL query using QAnswer API"@en ;
+        rdfs:label               "Qanary component: QAnswer Query Builder"@en ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  qaData:English, qaData:French, qaData:German, qaData:Italian, qaData:Spanish, qaData:Russian, qaData:Portuguese, qaData:Arabic, qaData:Chinese
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfAnswerSPARQL ;
+                                   qa:supportedKnowledgeGraphs  <http://wikidata.org>
+                                 ] .

@@ -1,0 +1,54 @@
+@prefix qa:    <https://w3id.org/wdaqua/qanary#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+# definition of the new classes
+qa:QanaryComponent  a  owl:Class ;
+        rdfs:label  "Qanary component"@en .
+
+#TODO: define all compoenent types NER, NED, QB, etc.
+
+qa:Language  a           owl:Class ;
+        rdfs:label       "Language"@en ;
+        rdfs:subClassOf  schema:CreativeWork .
+
+qa:KnowldgeGraph  a      owl:Class ;
+        rdfs:label       "Knowledge Graph"@en ;
+        rdfs:subClassOf  schema:CreativeWork .
+# definition of the new properties
+qa:hasInputAnnotations
+        a             rdf:Property ;
+        rdfs:comment  "A component ?x has input annotations ?y"@en .
+
+qa:hasOutputAnnotations
+        a             rdf:Property ;
+        rdfs:comment  "A component ?x has output annotations ?y"@en .
+
+qa:hasRestrictions  a  rdf:Property ;
+        rdfs:comment  "An annotation ?x holds supported values ?y"@en .
+        
+qa:supportedKnowledgeGraphs
+        rdf:subPropertyOf  qa:hasRestrictions .
+
+qa:supportedLanguages
+        rdf:subPropertyOf  qa:hasRestrictions .
+# extension of the existing annotation classes
+qa:AnnotationQuestion
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedLanguages ;
+                               owl:someValuesFrom  qa:language
+                             ] .
+
+qa:AnnotationOfInstance
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedKnowledgeGraphs ;
+                               owl:someValuesFrom  qa:knowledgeGraph
+                             ] .
+
+qa:AnnotationOfRelation
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedKnowledgeGraphs ;
+                               owl:someValuesFrom  qa:knowledgeGraph
+                             ] .
