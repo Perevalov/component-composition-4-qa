@@ -89,3 +89,20 @@ def reachable(n, marking_value):
                 return True
     
     return False
+
+def find_output_annotation_in_combination(annotation, combination):
+    """
+    Finds the component that contains the provided annotation in the provided combination.
+
+    Args:
+        annotation (Annotation): the annotation to find
+        combination (tuple): the combination to search in
+
+    Returns:
+        Component: the component that contains the annotation
+    """
+    for component in combination:
+        output_annotation_types = [type(oa) for oa in component.output_annotations]
+        if annotation in output_annotation_types:
+            return component
+    return None

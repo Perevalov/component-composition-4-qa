@@ -1,0 +1,17 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
+
+qaData:AGDISTISNED
+        a                        qa:QanaryComponentNED ;
+        rdfs:comment             "Receives a textual question and the spots from an NER component, disambiguates the spots and stores the corresponding named entities."@en ;
+        rdfs:label               "Qanary component: AGDISTIS Named Entity Disambiguator"@en ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  ISO6391:en
+                                 ] ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationOfSpotInstance ;
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfInstance ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] .

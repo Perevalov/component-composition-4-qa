@@ -3,10 +3,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:TagMe
-        a                        qa:QanaryComponentNED ; # TODO define this class in the ontology
-        rdfs:comment             "This is a wrapper component that is annotating the available questions with Named Entities from DBpedia while fetching these pieces of information from the TagMe Webservice."@en ;
-        rdfs:label               "Qanary component: TagMe Named Entity Disambiguator"@en ;
+qaData:OntotextNED
+        a                        qa:QanaryComponentNED ;
+        rdfs:comment             "Receives a textual question recognizes and disambiguates named entities and stores them."@en ;
+        rdfs:label               "Qanary component: Ontotext Named Entity Disambiguator"@en ;
         qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
                                    qa:supportedLanguages  ISO6391:en
                                  ] ;

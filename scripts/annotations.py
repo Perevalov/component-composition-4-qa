@@ -14,22 +14,35 @@ class AnnotationQuestion:
         return [Variable('question'), Variable('questionLang')]
     
 class AnnotationOfInstance:
+    # TODO: if no kgs then do not put it into guard and output
     token_value = 2
     def __init__(self, **kwargs):
         self.supported_knowledge_graphs = kwargs.get('https://w3id.org/wdaqua/qanary#supportedKnowledgeGraphs', [])
 
     def get_guard_expression(self):
-        kg_part = 'or '.join([f'kgInstance == \"{kg}\"' for kg in self.supported_knowledge_graphs])
-        return f"(instance == {self.token_value} and ({kg_part}))"
+        if len(self.supported_knowledge_graphs) == 0:
+            return f"(instance == {self.token_value})"
+        else:
+            kg_part = 'or '.join([f'kgInstance == \"{kg}\"' for kg in self.supported_knowledge_graphs])
+            return f"(instance == {self.token_value} and ({kg_part}))"
     
     def get_input_variables(self):
-        return [Variable('instance'), Variable('kgInstance')]
+        if len(self.supported_knowledge_graphs) == 0:
+            return [Variable('instance')]
+        else:
+            return [Variable('instance'), Variable('kgInstance')]
     
     def get_output_variables(self):
-        return [Variable('instance'), Variable('kgInstance')]
+        if len(self.supported_knowledge_graphs) == 0:
+            return [Variable('instance')]
+        else:
+            return [Variable('instance'), Variable('kgInstance')]
     
     def get_output_values(self):
-        return [Value(self.token_value), Value(self.supported_knowledge_graphs[0])] # we assume that for the output annotation we only have one kg
+        if len(self.supported_knowledge_graphs) == 0:
+            return [Value(self.token_value)]
+        else:
+            return [Value(self.token_value), Value(self.supported_knowledge_graphs[0])] # we assume that for the output annotation we only have one kg
 
 class AnnotationOfRelation:
     token_value = 3
@@ -103,3 +116,5 @@ class AnnotationOfClass:
 
 class AnnotationOfQuestionLanguage:
     token_value = 6
+
+# TODO: AnnotationOfSpotInstance

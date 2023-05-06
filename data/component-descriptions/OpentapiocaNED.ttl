@@ -3,13 +3,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:DBpediaSpotlight
+qaData:OpentapiocaNED
         a                        qa:QanaryComponentNED ;
-        rdfs:comment             "This is a wrapper component that is annotating the available questions with Named Entities from DBpedia while fetching these pieces of information from the DBpediaSpotlight Webservice."@en ;
-        rdfs:label               "Qanary component: DBpedia Spotlight Named Entity Disambiguator"@en ;
+        rdfs:comment             "Receives a textual question recognizes and disambiguates named entities and stores them."@en ;
+        rdfs:label               "Qanary component: Opentapioca Named Entity Disambiguator"@en ;
         qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
                                    qa:supportedLanguages  ISO6391:en
                                  ] ;
         qa:hasOutputAnnotations  [ a                            qa:AnnotationOfInstance ;
-                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                   qa:supportedKnowledgeGraphs  <http://wikidata.org>
                                  ] .

@@ -1,0 +1,14 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
+
+qaData:OntotextNER
+        a                        qa:QanaryComponentNER ;
+        rdfs:comment             "Receives a textual question, forwards it to the OntoText’s API and saves resulting named entities."@en ;
+        rdfs:label               "Qanary component: Ontotext Named Entity Recognizer"@en ;
+        qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
+                                   qa:supportedLanguages  ISO6391:en
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                      qa:AnnotationOfInstance ;
+                                 ] .
