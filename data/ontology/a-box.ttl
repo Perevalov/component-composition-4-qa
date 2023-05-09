@@ -1,7 +1,10 @@
 @prefix qa:    <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 
-qaData:Example a qa:KnowledgeGraph ;
-    rdfs:label "Example Knowledge Graph"@en .
+<http://wikidata.org> a qa:KnowledgeGraph ;
+    rdfs:label "Wikidata Knowledge Graph"@en .
+
+<http://dbpedia.org> a qa:KnowledgeGraph ;
+    rdfs:label "DBpedia Knowledge Graph"@en .

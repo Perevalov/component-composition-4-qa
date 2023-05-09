@@ -120,3 +120,5 @@ qa:AnnotationOfQuestionTranslation
                                owl:onProperty      qa:supportedLanguages ;
                                owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
                              ] .
+
+# TODO: AnnotationOfAnswerSPARQL

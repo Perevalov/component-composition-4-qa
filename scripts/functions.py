@@ -51,6 +51,7 @@ def parse_annotations(query_results):
             annotations.append(AnnotationQuestion(**value))
         elif 'https://w3id.org/wdaqua/qanary#AnnotationOfAnswerSPARQL' in value[RDF.type.toPython()]:
             annotations.append(AnnotationOfAnswerSPARQL(**value))
+        # TODO: add other annotation types
     
     return annotations
 

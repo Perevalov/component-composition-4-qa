@@ -1,9 +1,9 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:PythonLibreTranslate
+qa:PythonLibreTranslate
         a                        qa:QanaryComponentMT ;
         rdfs:comment             "MT tool that uses LibreTranslate to translate questions into English (https://libretranslate.com/)."@en ;
         rdfs:label               "Qanary component: Python Machine Translation Libre Translate"@en ;

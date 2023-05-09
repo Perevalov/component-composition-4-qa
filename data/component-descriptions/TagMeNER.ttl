@@ -1,9 +1,9 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:TagMeNER
+qa:TagMeNER
         a                        qa:QanaryComponentNER ;
         rdfs:comment             "Receives a textual question forwards it to the API of TagMe, gets back recognized entities and stores them. Comment: This component does the same thing as the corresponding NED, but just saves not all the information."@en ;
         rdfs:label               "Qanary component: TagMe Named Entity Recognizer"@en ;

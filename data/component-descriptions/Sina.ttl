@@ -1,8 +1,8 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-qaData:Sina
+qa:Sina
         a                        qa:QanaryComponentQB ;
         rdfs:comment             "This is a component that uses annotations of classes, relations, and entities to build a SPARQL query using Sina.jar file"@en ;
         rdfs:label               "Qanary component: Sina Query Builder"@en ;

@@ -1,9 +1,9 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:PythonHelsinkiNLP
+qa:PythonHelsinkiNLP
         a                        qa:QanaryComponentMT ;
         rdfs:comment             "MT tool that uses pre-trained models by Helsinki NLP (opus mt) implemented in transformers library (https://huggingface.co/Helsinki-NLP)."@en ;
         rdfs:label               "Qanary component: Python Machine Translation HelsinkiNLP"@en ;

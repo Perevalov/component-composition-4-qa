@@ -1,9 +1,9 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:WatsonNED
+qa:WatsonNED
         a                        qa:QanaryComponentNED ;
         rdfs:comment             "This is a Wrapper component for IBM Watson Natural Language Understanding API."@en ;
         rdfs:label               "Qanary component: IBM Watson Named Entity Disambiguator"@en ;

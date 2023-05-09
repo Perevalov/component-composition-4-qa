@@ -1,9 +1,9 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qaData: <https://w3id.org/wdaqua/qanary/> .
+@prefix qa: <https://w3id.org/wdaqua/qanary/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qaData:MeaningCloudNED
+qa:MeaningCloudNED
         a                        qa:QanaryComponentNED ;
         rdfs:comment             "Receives a textual question recognizes and disambiguates named entities and stores them."@en ;
         rdfs:label               "Qanary component: Meaning Cloud Named Entity Disambiguator"@en ;
