@@ -14,7 +14,6 @@ class AnnotationQuestion:
         return [Variable('question'), Variable('questionLang')]
     
 class AnnotationOfInstance:
-    # TODO: if no kgs then do not put it into guard and output
     token_value = 2
     def __init__(self, **kwargs):
         self.supported_knowledge_graphs = kwargs.get('https://w3id.org/wdaqua/qanary#supportedKnowledgeGraphs', [])
@@ -81,21 +80,6 @@ class AnnotationOfAnswerSPARQL:
     def get_output_values(self):
         return [Value(self.token_value), Value(self.supported_knowledge_graphs[0])] # we assume that for the output annotation we only have one kg
     
-## TODO: finish for other annotations
-# qa:AnnotationOfQuestionLanguage 
-#         owl:equivalentClass  [ a                   owl:Restriction ;
-#                               owl:onProperty      oa:hasBody ;
-#                              owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
-#                             ] .
-
-# qa:AnnotationOfQuestionTranslation
-#        owl:equivalentClass  [ a                   owl:Restriction ;
-#                               owl:onProperty      qa:supportedLanguages ;
-#                               owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
-#                             ] .
-
-## TODO: finish for other annotations
-
 class AnnotationOfClass:
     token_value = 5
     def __init__(self, **kwargs):
@@ -116,5 +100,53 @@ class AnnotationOfClass:
 
 class AnnotationOfQuestionLanguage:
     token_value = 6
+    def __init__(self, **kwargs):
+        self.supported_languages = kwargs.get('https://w3id.org/wdaqua/qanary#supportedLanguages', [])
 
-# TODO: AnnotationOfSpotInstance
+    def get_guard_expression(self):
+        lang_part = 'or '.join([f'questionLang == \"{lang}\"' for lang in self.supported_languages])
+        return f"({lang_part})"
+
+    def get_input_variables(self):
+        return [Variable('questionLang')]
+    
+    def get_output_variables(self):
+        return [Variable('questionLang')]
+    
+    def get_output_values(self):
+        return [Value(self.supported_languages[0])]
+ 
+class AnnotationOfQuestionTranslation:
+    token_value = 7
+    def __init__(self, **kwargs):
+        self.supported_languages = kwargs.get('https://w3id.org/wdaqua/qanary#supportedLanguages', [])
+
+    def get_guard_expression(self):
+        lang_part = 'or '.join([f'translatedQuestionLang == \"{lang}\"' for lang in self.supported_languages])
+        return f"(translatedQuestion == {self.token_value} and ({lang_part}))"
+
+    def get_input_variables(self):
+        return [Variable('translatedQuestion'), Variable('translatedQuestionLang')]
+    
+    def get_output_variables(self):
+        return [Variable('translatedQuestion'), Variable('translatedQuestionLang')] 
+    
+    def get_output_values(self):
+        return [Value(self.token_value), Value(self.supported_languages[0])]
+
+class AnnotationOfSpotInstance:
+    token_value = 8
+    def __init__(self, **kwargs):
+        pass
+
+    def get_guard_expression(self):
+        return f"(spotInstance == {self.token_value})"
+    
+    def get_input_variables(self):
+        return [Variable('spotInstance')]
+    
+    def get_output_variables(self):
+        return [Variable('spotInstance')]
+    
+    def get_output_values(self):
+        return [Value(self.token_value)]

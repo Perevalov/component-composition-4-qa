@@ -1,5 +1,5 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qa: <https://w3id.org/wdaqua/qanary/> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 qa:Sina

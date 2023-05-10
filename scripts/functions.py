@@ -1,5 +1,14 @@
 from rdflib import RDF
-from scripts.annotations import AnnotationOfInstance, AnnotationOfRelation, AnnotationQuestion, AnnotationOfAnswerSPARQL
+from scripts.annotations import (
+    AnnotationOfInstance, 
+    AnnotationOfRelation, 
+    AnnotationQuestion, 
+    AnnotationOfAnswerSPARQL,
+    AnnotationOfClass,
+    AnnotationOfQuestionLanguage,
+    AnnotationOfQuestionTranslation,
+    AnnotationOfSpotInstance
+)
 from scripts.components import type_class_dict
 
 
@@ -43,7 +52,9 @@ def parse_annotations(query_results):
         
     annotations = []
     for annotation, value in annotation_value.items():
-        if 'https://w3id.org/wdaqua/qanary#AnnotationOfInstance' in value[RDF.type.toPython()]:
+        if 'https://w3id.org/wdaqua/qanary#AnnotationQuestion' in value[RDF.type.toPython()]:
+            annotations.append(AnnotationQuestion(**value))
+        elif 'https://w3id.org/wdaqua/qanary#AnnotationOfInstance' in value[RDF.type.toPython()]:
             annotations.append(AnnotationOfInstance(**value))
         elif 'https://w3id.org/wdaqua/qanary#AnnotationOfRelation' in value[RDF.type.toPython()]:
             annotations.append(AnnotationOfRelation(**value))
@@ -51,7 +62,17 @@ def parse_annotations(query_results):
             annotations.append(AnnotationQuestion(**value))
         elif 'https://w3id.org/wdaqua/qanary#AnnotationOfAnswerSPARQL' in value[RDF.type.toPython()]:
             annotations.append(AnnotationOfAnswerSPARQL(**value))
-        # TODO: add other annotation types
+        elif 'https://w3id.org/wdaqua/qanary#AnnotationOfClass' in value[RDF.type.toPython()]:
+            annotations.append(AnnotationOfClass(**value))
+        elif 'https://w3id.org/wdaqua/qanary#AnnotationOfQuestionLanguage' in value[RDF.type.toPython()]:
+            annotations.append(AnnotationOfQuestionLanguage(**value))
+        elif 'https://w3id.org/wdaqua/qanary#AnnotationOfQuestionTranslation' in value[RDF.type.toPython()]:
+            annotations.append(AnnotationOfQuestionTranslation(**value))
+        elif 'https://w3id.org/wdaqua/qanary#AnnotationOfSpotInstance' in value[RDF.type.toPython()]:
+            annotations.append(AnnotationOfSpotInstance(**value))
+        else:
+            print('Annotation type not found: {}'.format(value[RDF.type.toPython()]))
+            assert False
     
     return annotations
 
@@ -77,7 +98,6 @@ def parse_component(graph, component_uri, component_type):
         return type_class_dict[component_type](uri=component_uri, comment=row.comment.toPython(), label=row.label.toPython(), input_annotations=input_annotations, output_annotations=output_annotations)
     
 def reachable(n, marking_value):
-    # TODO: if there is no place that is supposed to have the marking_value, then return False
     for transition in n.transition():
         modes = transition.modes() # get variable substitutions
         if len(modes) == 0: # deadlock

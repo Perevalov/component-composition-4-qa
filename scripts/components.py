@@ -8,11 +8,11 @@ class Component:
         self.output_annotations = output_annotations
         
     def __str__(self) -> str:
-        value = self.uri.replace('https://w3id.org/wdaqua/qanary/', '')
+        value = self.uri.replace('https://w3id.org/wdaqua/qanary#', '')
         return f'{value}'
     
     def __repr__(self) -> str:
-        value = self.uri.replace('https://w3id.org/wdaqua/qanary/', '')
+        value = self.uri.replace('https://w3id.org/wdaqua/qanary#', '')
         return f'{value}'
 
 class ComponentNER(Component):

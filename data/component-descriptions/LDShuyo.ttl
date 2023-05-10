@@ -1,5 +1,5 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
-@prefix qa: <https://w3id.org/wdaqua/qanary/> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
@@ -8,7 +8,9 @@ qa:LDShuyo
         rdfs:comment             "The component is classifying the queston of the current process (already stored in the Qanary triplestore) using the Shuyo language model."@en ;
         rdfs:label               "Qanary component: Language Detector Shuyo"@en ;
         qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
-                                   qa:supportedLanguages  ISO6391:en
+                                   qa:supportedLanguages  ISO6391:en, ISO6391:de, ISO6391:fr, ISO6391:es, ISO6391:it, ISO6391:nl, ISO6391:pl, ISO6391:pt, ISO6391:ru, ISO6391:zh
                                  ] ;
-        qa:hasOutputAnnotations  [ a                      qa:AnnotationOfQuestionLanguage 
+        qa:hasOutputAnnotations  [ a                      qa:AnnotationOfQuestionLanguage ;
+                                   qa:supportedLanguages  ISO6391:en, ISO6391:de, ISO6391:fr, ISO6391:es, ISO6391:it, ISO6391:nl, ISO6391:pl, ISO6391:pt, ISO6391:ru, ISO6391:zh
+                                   # TODO: add more languages
                                  ] .

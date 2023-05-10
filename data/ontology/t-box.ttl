@@ -121,4 +121,9 @@ qa:AnnotationOfQuestionTranslation
                                owl:someValuesFrom  <http://id.loc.gov/vocabulary/iso639-1/>
                              ] .
 
-# TODO: AnnotationOfAnswerSPARQL
+qa:AnnotationOfAnswerSPARQL
+        owl:equivalentClass  [ a                   owl:Restriction ;
+                               owl:onProperty      qa:supportedKnowledgeGraphs ;
+                               owl:someValuesFrom  qa:KnowledgeGraph
+                             ] .
+ 
