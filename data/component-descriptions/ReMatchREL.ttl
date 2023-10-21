@@ -3,7 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qa:ReMatch
+qa:ReMatchREL
         a                        qa:QanaryComponentREL ;
         rdfs:comment             "This is a wrapper component that is annotating the available questions with Relations from DBpedia"@en ;
         rdfs:label               "Qanary component: ReMatch Relation Linker"@en ;

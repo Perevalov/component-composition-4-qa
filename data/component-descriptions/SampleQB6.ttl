@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-qa:Sina
+qa:SampleQB6
         a                        qa:QanaryComponentQB ;
         rdfs:comment             "This is a component that uses annotations of classes, relations, and entities to build a SPARQL query using Sina.jar file"@en ;
         rdfs:label               "Qanary component: Sina Query Builder"@en ;

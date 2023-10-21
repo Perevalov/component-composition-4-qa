@@ -1,14 +1,15 @@
 @prefix qa: <https://w3id.org/wdaqua/qanary#> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qa:AGDISTISNED
-        a                        qa:QanaryComponentNED ;
-        rdfs:comment             "Receives a textual question and the spots from an NER component, disambiguates the spots and stores the corresponding named entities."@en ;
-        rdfs:label               "Qanary component: AGDISTIS Named Entity Disambiguator"@en ;
+qa:ReMatch1REL
+        a                        qa:QanaryComponentREL ;
+        rdfs:comment             "This is a wrapper component that is annotating the available questions with Relations from DBpedia"@en ;
+        rdfs:label               "Qanary component: ReMatch Relation Linker"@en ;
         qa:hasInputAnnotations   [ a                      qa:AnnotationQuestion ;
                                    qa:supportedLanguages  ISO6391:en
                                  ] ;
-        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfInstance ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfRelation ;
                                    qa:supportedKnowledgeGraphs  <http://dbpedia.org>
                                  ] .

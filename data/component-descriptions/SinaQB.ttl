@@ -1,0 +1,17 @@
+@prefix qa: <https://w3id.org/wdaqua/qanary#> .
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+qa:SinaQB
+        a                        qa:QanaryComponentQB ;
+        rdfs:comment             "This is a component that uses annotations of classes, relations, and entities to build a SPARQL query using Sina.jar file"@en ;
+        rdfs:label               "Qanary component: Sina Query Builder"@en ;
+        qa:hasInputAnnotations   [ a                            qa:AnnotationOfRelation ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] ;
+        qa:hasInputAnnotations   [ a                            qa:AnnotationOfInstance ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] ;
+        qa:hasOutputAnnotations  [ a                            qa:AnnotationOfAnswerSPARQL ;
+                                   qa:supportedKnowledgeGraphs  <http://dbpedia.org>
+                                 ] .

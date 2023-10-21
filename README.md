@@ -1,4 +1,4 @@
-# Repository for the paper "Service Composition in Component-Oriented Question Answering Systems using Petri Nets and Semantic Descriptions"
+# Repository for the paper "Towards Automated Semantic-Driven Web Service Composition: Case Study on Question Answering Systems"
 
 ## Structure
 

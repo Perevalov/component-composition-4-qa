@@ -3,7 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISO6391: <http://id.loc.gov/vocabulary/iso639-1/> .
 
-qa:QAnswer
+qa:QAnswerQB
         a                        qa:QanaryComponentQB ;
         rdfs:comment             "This is a component that uses question text to build a SPARQL query using QAnswer API"@en ;
         rdfs:label               "Qanary component: QAnswer Query Builder"@en ;
